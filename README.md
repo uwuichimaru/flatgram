@@ -20,6 +20,9 @@ Built with:
 - NodeJS
 - PrismaORM
 
+## Database scheme
+![cv](https://github.com/uwuichimaru/flatgram/releases/download/scheme/infologicalScheme.png)
+
 ## Feedback
 
 If you have any feedback, please reach out to me at https://t.me/extybw or islammirzabekov228@gmail.com
