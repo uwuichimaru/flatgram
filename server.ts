@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import {config} from 'dotenv'
 import { userRouter } from './routes/users';
-import { messageRouter } from './routes/message';
+import { chatRouter } from './routes/chats';
 
 config();
 const app = express();
@@ -13,7 +13,7 @@ app.use(cors({origin: "*"}));
 app.use(express.urlencoded({extended: true}));
 
 app.use('/api/users', userRouter);
-app.use('/api/messages', messageRouter)
+app.use('/api/chats', chatRouter)
 
 app.listen(PORT || 5173, () =>
     console.log(`Server is running on the port = ${PORT || 5173}`))
