@@ -1,0 +1,80 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "mysql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// -------------------- [ENUMS] --------------------
+
+enum Roles {
+  USER
+  MODER
+  ADMIN
+  OWNER
+}
+
+enum TypeOfMessage {
+  TEXT
+  PICTURE
+  PICTIRUANDTEXT
+  AUDIO
+  VIDEO
+}
+
+
+// -------------------- [MODELS] --------------------
+
+model User {
+    id Int @id @default(autoincrement())
+    name String
+    phoneNumber String
+    email String @unique
+    password String
+    userName String? @unique
+    profilePicture String?
+
+    chatsId Chat[]
+
+    role Roles @default(USER)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model Chat {
+  id Int @id @default(autoincrement())
+  
+  userId Int @unique
+  recipentUser User @relation(fields: [userId], references: [id])
+  
+  history ChatHistory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+model Message {
+  id Int @id @default(autoincrement())
+  
+  historyId Int
+  history ChatHistory @relation(fields: [historyId], references: [id])
+
+  type TypeOfMessage
+  content String
+
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ChatHistory {
+  id Int @id @default(autoincrement())
+  chatId Int
+  chat Chat @relation(fields: [chatId], references: [id])
+
+  messages Message[]
+}
