@@ -21,7 +21,7 @@ Built with:
 - PrismaORM
 
 ## Database scheme
-![cv](https://github.com/uwuichimaru/flatgram/releases/download/scheme/infologicalScheme.svg)
+![cv](https://github.com/uwuichimaru/flatgram/releases/download/scheme/scheme.svg)
 
 ## Feedback
 
