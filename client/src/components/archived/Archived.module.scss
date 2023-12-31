@@ -1,0 +1,20 @@
+.archived {
+    display: flex;
+    width: 327px;
+    margin: 20px auto;
+    position: relative;
+    gap: 17px;
+    font-family: 'Manrope', sans-serif;
+    color: #709CE6;
+    
+    cursor: pointer;
+
+    &:hover {
+        background-color: #eeeeee;
+        border-radius: 12px;
+    }
+
+    img{
+        margin-left: 10px;
+    }
+}

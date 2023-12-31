@@ -1,0 +1,27 @@
+.chatlist {
+  background-color: "#F8FAFF";
+  width: 384px;
+  height: 100vh;
+  font-family: 'Manrope', sans-serif;
+  overflow-y: auto;
+
+  hr {
+    width: 327px;
+    border: -1px solid #B4B4B4;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    width: 327px;
+    margin: 0 auto;
+  }
+
+  &__lists{
+    font-family: 'Manrope', sans-serif;
+    color:#676667;
+    font-size: 16px;
+    width: 327px;
+    margin: 20px 0 0 auto;
+  }
+}
