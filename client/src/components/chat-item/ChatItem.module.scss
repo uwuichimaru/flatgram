@@ -1,0 +1,48 @@
+.chatItem {
+    display: flex;
+    font-family: 'Manrope', sans-serif;
+    width: 327px;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-items: center;
+    height: 81px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    transition: background-color .1s ease;
+
+    &:hover{
+        background-color: #ececec;
+
+    }
+
+    .logo>:last-child {
+        position: relative;
+        left: -12px;
+    }
+
+    .about {
+        margin-left: -30px;
+        h3{
+            margin: 0;
+            font-size: 16px;
+            color: #030303;
+        }
+        p{
+            margin: 0;
+            line-height: 23px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #7C7C7D;
+        }
+    }
+    .time {
+        margin-bottom: 15px;
+        margin-left: 50px;
+        font-size: 12px;
+        color: #686768;
+    }
+}

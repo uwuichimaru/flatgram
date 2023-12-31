@@ -1,9 +1,9 @@
-import { Sidebar } from "./components/sidebar"
+import { Initial } from "./pages/initial"
 
 const App = () => {
   return (
     <div>
-      <Sidebar />
+      <Initial />
     </div>
   )
 }
