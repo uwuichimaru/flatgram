@@ -29,4 +29,4 @@ If you have any feedback, please reach out to me at https://t.me/extybw or islam
 
 ## License
 
-[GPL]([https://www.gnu.org/licenses/gpl-3.0.html)
+[GPL](https://www.gnu.org/licenses/gpl-3.0.html)
