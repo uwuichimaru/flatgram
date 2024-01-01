@@ -29,8 +29,8 @@ enum TypeOfMessage {
 
 model User {
     id Int @id @default(autoincrement())
-    name String
-    phoneNumber String
+    name String?
+    phoneNumber String?
     email String @unique
     password String
     userName String? @unique
