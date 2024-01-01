@@ -1,0 +1,103 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Manrope", sans-serif;
+    user-select: none;
+      -webkit-user-drag: none;
+  
+    img {
+      width: 100;
+      height: 110px;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  
+    h3 {
+      font-size: 32px;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    p {
+      width: 250px;
+      text-align: center;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+  
+    .form {
+      display: flex;
+      flex-direction: column;
+      width: 325px;
+      gap: 30px;
+      &__toLogin{
+        margin: 0 auto;
+        a {
+          text-decoration: none;
+  
+          color: #5b96f7;
+        }
+      }
+      &__wrapper {
+          width: 320px;
+          height: 50px;
+      }
+      input {
+          width: 320px;
+          height: 50px;
+          border-radius: 8px;
+          outline: none;
+          text-indent: 15px;
+          font-size: 16px;
+          border: 1px solid #919eabc5;
+        }
+        .label {
+          text-align: start;
+          position: relative;
+          top: 10px;
+          left: 10px;
+          background-color: #fff;
+          color: #919eab;
+        }
+        &__wrapper:focus-within input{
+          border: 1px solid #5b96f7;
+        }
+        &__wrapper:focus-within .label{
+          color: #5b96f7;
+        }
+        &__wrapper:hover input {
+          border: 1px solid #5b96f7;
+        }
+        &__wrapper:hover .label {
+          color: #5b96f7;
+        }
+  
+        &__button {
+          margin-top: 15px;
+          border-radius: 7px;
+          outline: none;
+          border: 0;
+          width: 100%;
+          height: 50px;
+          border: 1px solid #5B96F7;
+          font-size: 24px;
+          cursor: pointer;
+          color: #5B96F7;
+          background: transparent;
+          background-image: linear-gradient(#5B96F7, #5B96F7);
+          background-position: 0% 100%;
+          background-repeat: no-repeat;
+          background-size: 0% 100%;
+          transition: background-size .3s, color .3s;
+  
+          &:hover {
+              background-size: 100% 100%;
+              color: #fff;
+          }
+        }
+    }
+  }
