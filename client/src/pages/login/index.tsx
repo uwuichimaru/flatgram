@@ -20,13 +20,17 @@ export const Login = () => {
   const user = useSelector(selectUser);
   const [loginUser] = useLoginMutation();
   const { enqueueSnackbar } = useSnackbar()
+  const token = localStorage.getItem("token");
 
 
   useEffect(() => {
     if(user) {
       navigate("/chat")
     }
-  }, [user, navigate])
+    if(token) {
+      navigate("/chat")
+    }
+  }, [user, navigate, token])
 
   const loginSubmit = async (data:UserData) => {
     try{

@@ -21,12 +21,16 @@ export const Register = () => {
   const [registerUser] = useRegisterMutation();
   const user = useSelector(selectUser);
   const {enqueueSnackbar} = useSnackbar();
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     if(user) {
       navigate('/chat')
     }
-  }, [user, navigate])
+    if(token) {
+      navigate('/chat')
+    }
+  }, [user, navigate, token])
 
   const registerSubmit = async (data:UserData) => {
     try{

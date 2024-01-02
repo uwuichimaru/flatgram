@@ -5,6 +5,9 @@ import Users from "../../assets/sidebar/Users.svg";
 import Phone from "../../assets/sidebar/Phone.svg";
 import Settings from "../../assets/sidebar/Gear.svg";
 import Profile from "../../assets/sidebar/Profile.svg";
+import PopupProfile from "../popups/profile";
+
+
 
 export const Sidebar = () => {
   return (
@@ -38,7 +41,7 @@ export const Sidebar = () => {
       <div className={styles.bottom_nav}>
         <div className={styles.bottom_nav__theme}>theme switcher</div>
         <div className={styles.bottom_nav__profile}>
-          <img src={Profile} alt="" />
+          <PopupProfile profile={Profile}/>
         </div>
       </div>
     </div>
