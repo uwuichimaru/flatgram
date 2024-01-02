@@ -7,6 +7,7 @@ import {useForm, SubmitHandler} from 'react-hook-form'
 import { useEffect } from "react";
 import { selectUser } from "../../features/auth/authSlice";
 import { useSelector } from "react-redux";
+import {useSnackbar} from 'notistack'
 
 
 interface Inputs extends UserData {
@@ -18,6 +19,9 @@ export const Login = () => {
   const navigate = useNavigate();
   const user = useSelector(selectUser);
   const [loginUser] = useLoginMutation();
+  const { enqueueSnackbar } = useSnackbar()
+
+
   useEffect(() => {
     if(user) {
       navigate("/chat")
@@ -28,9 +32,10 @@ export const Login = () => {
     try{
       await loginUser(data).unwrap();
       navigate('/chat');
+      enqueueSnackbar("Successfully signed in", {variant: "success"})
     }
     catch {
-      console.log('error')
+      enqueueSnackbar("Something went wrong", {variant: "error"})
     }
   }
 

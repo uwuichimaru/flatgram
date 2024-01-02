@@ -7,6 +7,7 @@ import {useForm, SubmitHandler} from 'react-hook-form'
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from '../../features/auth/authSlice';
+import {useSnackbar} from 'notistack'
 
 interface Inputs extends UserData {
   email: string,
@@ -19,6 +20,7 @@ export const Register = () => {
   const navigate = useNavigate();
   const [registerUser] = useRegisterMutation();
   const user = useSelector(selectUser);
+  const {enqueueSnackbar} = useSnackbar();
 
   useEffect(() => {
     if(user) {
@@ -30,9 +32,10 @@ export const Register = () => {
     try{
       await registerUser(data).unwrap();
       navigate('/chat')
+      enqueueSnackbar("Successfully signed up", {variant: "success"})
     }
     catch {
-      console.log('Error')
+      enqueueSnackbar("Something went wrong", {variant: "error"})
     }
   }
 
