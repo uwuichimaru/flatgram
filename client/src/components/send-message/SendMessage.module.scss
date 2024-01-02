@@ -1,0 +1,53 @@
+.message{
+    position: fixed;
+    bottom: 0;
+    background-color: #F7F9FD;
+    width: calc(100vw - 7vw - 30vw);
+    padding: 15px 30px 15px 30px;
+    display: flex;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+
+    img {
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    &__link {
+        position: relative;
+        left: 50px;
+        cursor: pointer;
+    }
+
+    input {
+        width: 80%;
+        padding-right: 60px;
+        height: 39px;
+        border: 0;
+        border-radius: 7px;
+        text-indent: 60px;
+        background-color: #EAF2FE;
+        outline: none;
+
+        &::placeholder {
+            color: #709CE6;
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+
+    button {
+        background-color: #5B96F7;
+        border: 0;
+        border-radius: 12px;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+    }
+
+    &__smiley {
+        position: relative;
+        left: -50px;
+        cursor: pointer;
+    }
+}
