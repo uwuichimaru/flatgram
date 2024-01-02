@@ -3,6 +3,7 @@ import { ChatList } from "../../components/chat-list";
 import { Sidebar } from "../../components/sidebar";
 import styles from "./Initial.module.scss";
 import { useEffect } from "react";
+import { ChatMessage } from "../../components/chat-message";
 
 export const Initial = () => {
 
@@ -19,6 +20,7 @@ export const Initial = () => {
     <div className={styles.initial}>
       <Sidebar />
       <ChatList />
+      <ChatMessage />
     </div>
   );
 };

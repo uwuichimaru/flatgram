@@ -1,0 +1,57 @@
+.bar{
+    display: flex;
+    justify-content: space-between;
+    width: calc(100vw - 7vw - 30vw);
+    font-family: 'Manrope', sans-serif;
+    padding: 15px 30px 15px 30px;
+    background-color: #F8FAFF;
+
+
+    &__person {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    &__online {
+        position: relative;
+        left: -10px;
+    }
+
+    &__info {
+        h4{
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            color: #696969;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__navigation {
+        display: flex;
+        gap: 40px;
+
+        img{
+            cursor: pointer;
+        }
+    }
+
+    span{
+        border: 1px solid #bdbdbd;
+        height: 40px;
+    }
+
+    &__buttons {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 30px;
+    }
+
+    &__media {
+        cursor: pointer;
+    }
+}
