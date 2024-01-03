@@ -104,4 +104,22 @@ const getUserById = async (req: Request, res: Response) => {
     }
 }
 
-export { login, register, getUserById }
+const editUserById = async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+
+        const {name, userName, description, profilePicture} = req.body;
+
+        await prisma.user.update({where:{id: parseInt(id)}, data: {
+                name: name,
+                userName: userName,
+                description: description,
+                profilePicture: profilePicture,
+        }})
+    }
+    catch {
+        return res.status(500).json({ message: "Fatal error" })
+    }
+}
+
+export { login, register, getUserById, editUserById }
