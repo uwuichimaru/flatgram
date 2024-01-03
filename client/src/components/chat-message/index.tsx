@@ -1,3 +1,4 @@
+import { EmptyConversation } from "../empty-conversation"
 import { RecieverBar } from "../reciever-bar"
 import { SendMessage } from "../send-message"
 
@@ -5,8 +6,9 @@ import { SendMessage } from "../send-message"
 export const ChatMessage = () => {
     return (
         <div>
-            <RecieverBar />
-            <SendMessage />
+            {/* <RecieverBar />
+            <SendMessage /> */}
+            <EmptyConversation />
         </div>
     )
 }

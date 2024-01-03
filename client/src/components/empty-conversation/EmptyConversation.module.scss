@@ -1,0 +1,25 @@
+.empty{
+    display: flex;
+    flex-direction: column;
+    width: calc(100vw - 7vw - 30vw);
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+
+    img {
+        width: 248px;
+        height: 248px;
+        user-select: none;
+        -webkit-user-drag: none;
+    }
+
+    p{
+        font-size: 16px;
+
+        a {
+            text-decoration: none;
+            color: #5B96F7;
+        }
+    }
+}
