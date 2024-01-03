@@ -1,0 +1,101 @@
+.profile {
+  background-color: #f8faff;
+  width: 30vw;
+  height: 100vh;
+  font-family: "Manrope", sans-serif;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    display: flex;
+    font-size: 30px;
+    gap: 20px;
+    position: relative;
+    left: -80px;
+
+    h3,
+    img {
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+  }
+
+  &__photo {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    &:focus-within label {
+      color: #5b96f7;
+    }
+
+    &:focus-within input {
+      border: 2px solid #5b96f7;
+    }
+
+    &:hover label {
+      color: #5b96f7;
+    }
+
+    &:hover input {
+      border: 2px solid #5b96f7;
+    }
+
+    label {
+      position: relative;
+      top: 10px;
+      left: 15px;
+      background-color: #f8faff;
+      text-align: center;
+      transition: color 0.2s ease;
+    }
+    input {
+      width: 320px;
+      height: 56px;
+      border: 2px solid #919eab52;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      text-indent: 12px;
+      background: transparent;
+
+      transition: border 0.2s ease;
+    }
+  }
+
+  &__save {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    position: relative;
+    left: -50px;
+    button {
+      color: #5b96f7;
+      border: 1px solid #5b96f7;
+      width: 150px;
+      height: 48px;
+      background: transparent;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 20px;
+
+      background-size: 0% 100%;
+      background-position: 0% 100%;
+      background-image: linear-gradient(#5b96f7, #5b96f7);
+      background-repeat: no-repeat;
+
+      transition: background-size .3s ease-in, color .3s ease-in;
+
+      &:hover {
+        background-size: 100% 100%;
+        color: #fff;
+      }
+    }
+  }
+}
