@@ -27,7 +27,7 @@ const login = async (req: Request, res: Response) => {
         }
     }
     catch (err) {
-        return res.status(500).json({ message: "Fatal error" + err })
+        res.status(500).json({ message: "Fatal error" + err })
     }
 }
 
@@ -65,20 +65,19 @@ const register = async (req: Request, res: Response) => {
         }
     }
     catch (err) {
-        return res.status(500).json({ message: "Fatal error" + err })
+        res.status(500).json({ message: "Fatal error" + err })
     }
 }
 
 const getUserById = async (req: Request, res: Response) => {
     const { id } = req.params;
     try {
-
         const user = await prisma.user.findFirst({
             where: {
                 id: parseInt(id)
             }
         })
-
+    
         if (user) {
             return res.status(200).json({
                 id: user.id,
@@ -99,31 +98,34 @@ const getUserById = async (req: Request, res: Response) => {
             })
         }
     }
-    catch (err) {
-        return res.status(500).json({ message: "Fatal error", err })
+    catch {
     }
+    
 }
+
 
 const editUserById = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
 
-        const {name, userName, description, profilePicture} = req.body;
+        const { name, userName, description, profilePicture } = req.body;
 
-        await prisma.user.update({where:{id: parseInt(id)}, data: {
+        await prisma.user.update({
+            where: { id: parseInt(id) }, data: {
                 name: name,
                 userName: userName,
                 description: description,
                 profilePicture: profilePicture,
-        }})
+            }
+        })
     }
     catch {
-        return res.status(500).json({ message: "Fatal error" })
+        res.status(500).json({ message: "Fatal error" })
     }
 }
 
 const current = async (req: Request, res: Response) => {
-    return res.status(200).json(req.user)
+    return res.json(req.user)
 };
 
 export { login, register, getUserById, editUserById, current }

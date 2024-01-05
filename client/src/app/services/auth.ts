@@ -20,17 +20,23 @@ export const authApi = api.injectEndpoints({
                 body: userData,
             })
         }),
+        current: builder.query<ResponseLoginData, void>({
+            query: () => ({
+                url: "users/current",
+                method: "GET",
+            })
+        }),
         getUserById: builder.query<ResponseLoginData, UserData>({
             query: (id) => ({
                 url: 'users/getUserById/',
                 method: "GET",
-                params: id
+                body: id
             })
         }),
     }),
     overrideExisting: false
 })
 
-export const {useRegisterMutation, useLoginMutation, useGetUserByIdQuery} = authApi;
+export const {useRegisterMutation, useLoginMutation, useGetUserByIdQuery, useCurrentQuery} = authApi;
 
-export const {endpoints: {login, register, getUserById}} = authApi;
+export const {endpoints: {login, register, getUserById, current}} = authApi;

@@ -13,12 +13,11 @@ export interface TContent {
 }
 
 export const Initial = () => {
-  const user = useSelector(selectUser)
-  console.log(user);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [selectedContent, setSelectedContent] = useState<TContent>({content: "chats"});
-  console.log(selectedContent)
+
+  console.log(useSelector(selectUser));
 
   const handleButtonClick = (content: TContent) => {
     setSelectedContent(content);

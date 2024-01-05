@@ -1,8 +1,9 @@
-import { Login } from "./pages/login"
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import { Register } from "./pages/register"
-import { Initial } from "./pages/initial"
-import { Paths } from './paths'
+import { Login } from "./pages/login";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Register } from "./pages/register";
+import { Initial } from "./pages/initial";
+import { Paths } from "./paths";
+import { Auth } from "./features/auth/auth";
 
 const router = createBrowserRouter([
   {
@@ -11,19 +12,20 @@ const router = createBrowserRouter([
   },
   {
     path: Paths.PATH_REGISTER,
-    element: <Register />
+    element: <Register />,
   },
   {
     path: Paths.PATH_CHAT,
-    element: <Initial />
-  }
-])
-
+    element: <Initial />,
+  },
+]);
 
 const App = () => {
   return (
-    <RouterProvider router={router}/>
-  )
-}
+    <Auth>
+      <RouterProvider router={router} />
+    </Auth>
+  );
+};
 
-export default App
+export default App;
