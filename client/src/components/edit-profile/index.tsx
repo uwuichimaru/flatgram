@@ -1,8 +1,12 @@
 import styles from "./EditProfile.module.scss";
 import back from "../../assets/edit-profile/CaretDown.svg";
 import avatar from "../../assets/edit-profile/Avatar.svg";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/auth/authSlice";
 
 export const EditProfile = () => {
+  const user = useSelector(selectUser);
+  console.log(user);
   return (
     <div className={styles.profile}>
       <div className={styles.profile__title}>

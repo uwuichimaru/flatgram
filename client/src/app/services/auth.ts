@@ -26,7 +26,7 @@ export const authApi = api.injectEndpoints({
                 method: "GET",
                 params: id
             })
-        })
+        }),
     }),
     overrideExisting: false
 })

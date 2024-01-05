@@ -5,12 +5,16 @@ import styles from "./Initial.module.scss";
 import { useEffect, useState } from "react";
 import { ChatMessage } from "../../components/chat-message";
 import { EditProfile } from "../../components/edit-profile";
+import { selectUser } from "../../features/auth/authSlice";
+import { useSelector } from "react-redux";
 
 export interface TContent {
   content: "chats" | "contacts" | "calls" | "settings" | "editProfile";
 }
 
 export const Initial = () => {
+  const user = useSelector(selectUser)
+  console.log(user);
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [selectedContent, setSelectedContent] = useState<TContent>({content: "chats"});

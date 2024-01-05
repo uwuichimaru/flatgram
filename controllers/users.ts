@@ -19,7 +19,7 @@ const login = async (req: Request, res: Response) => {
         const secret = process.env.JWT_SECRET;
 
         if (user && isPasswordCorrect && secret) {
-            return res.status(200).json({
+            return res.status(201).json({
                 id: user.id,
                 email: user.email,
                 token: sign({ id: user.id }, secret, { expiresIn: '1h' })
@@ -122,4 +122,8 @@ const editUserById = async (req: Request, res: Response) => {
     }
 }
 
-export { login, register, getUserById, editUserById }
+const current = async (req: Request, res: Response) => {
+    return res.status(200).json(req.user)
+};
+
+export { login, register, getUserById, editUserById, current }
