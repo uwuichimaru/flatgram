@@ -22,7 +22,7 @@ const login = async (req: Request, res: Response) => {
             return res.status(201).json({
                 id: user.id,
                 email: user.email,
-                token: sign({ id: user.id }, secret, { expiresIn: '1h' })
+                token: sign({ id: user.id }, secret, { expiresIn: '24h' })
             })
         }
     }
@@ -60,7 +60,7 @@ const register = async (req: Request, res: Response) => {
             return res.status(200).json({
                 id: user.id,
                 email: user.email,
-                token: sign({ id: user.id }, secret, { expiresIn: '1h' })
+                token: sign({ id: user.id }, secret, { expiresIn: '24h' })
             })
         }
     }
@@ -69,28 +69,12 @@ const register = async (req: Request, res: Response) => {
     }
 }
 
-const getUserById = async (req: Request, res: Response) => {
-    const { id } = req.params;
+const getAllUsers = async (req: Request, res: Response) => {
     try {
-        const user = await prisma.user.findFirst({
-            where: {
-                id: parseInt(id)
-            }
-        })
+        const user = await prisma.user.findMany()
     
         if (user) {
-            return res.status(200).json({
-                id: user.id,
-                name: user.name,
-                phoneNumber: user.phoneNumber,
-                email: user.email,
-                password: user.password,
-                userName: user.userName,
-                profilePicture: user.profilePicture,
-                role: user.role,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt,
-            })
+            return res.status(200).json(user)
         }
         else {
             return res.status(404).json({
@@ -128,4 +112,4 @@ const current = async (req: Request, res: Response) => {
     return res.json(req.user)
 };
 
-export { login, register, getUserById, editUserById, current }
+export { login, register, getAllUsers, editUserById, current }

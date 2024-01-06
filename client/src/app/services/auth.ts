@@ -26,17 +26,23 @@ export const authApi = api.injectEndpoints({
                 method: "GET",
             })
         }),
-        getUserById: builder.query<ResponseLoginData, UserData>({
-            query: (id) => ({
-                url: 'users/getUserById/',
+        getAllUsers: builder.mutation<ResponseLoginData, void>({
+            query: () => ({
+                url: 'users/',
                 method: "GET",
-                body: id
             })
         }),
+        editUserById: builder.mutation<ResponseLoginData, User>({
+            query: (user) => ({
+                url: `users/edit/${user.id}`,
+                method: "PUT",
+                body: user
+            })
+        })
     }),
     overrideExisting: false
 })
 
-export const {useRegisterMutation, useLoginMutation, useGetUserByIdQuery, useCurrentQuery} = authApi;
+export const {useRegisterMutation, useLoginMutation, useGetAllUsersMutation, useCurrentQuery, useEditUserByIdMutation} = authApi;
 
-export const {endpoints: {login, register, getUserById, current}} = authApi;
+export const {endpoints: {login, register, getAllUsers, current, editUserById}} = authApi;
